@@ -1,0 +1,39 @@
+/* styles.qss */
+
+QWidget {
+    background-color: whitesmoke;
+}
+
+/* Default style for input boxes */
+QLineEdit {
+    font-size: 28px;
+    padding: 1px;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+/* Loaded numbers (read-only) */
+QLineEdit[readOnly="true"] {
+    color: black;
+    font-weight: bold;
+}
+
+/* Buttons */
+QPushButton {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: 3 solid whitesmoke;
+    border-radius: 10px;
+}
+
+/* Button:hover for mouse-over effect */
+QPushButton:hover {
+    background-color: #005b9e;
+}
+
+/* Message box */
+QMessageBox {
+    font-size: 18px;
+}

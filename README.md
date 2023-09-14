@@ -1,6 +1,7 @@
 ## Description
 
-A Sudoku solver with GUI.
+A Sudoku solver with GUI built using PyQt5.
 
 TODO:
-- GUI
+- aesthetic improvement
+- change solve button behaviour to check if grid is full

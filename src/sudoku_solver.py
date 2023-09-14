@@ -1,3 +1,5 @@
+from collections import Counter
+
 EMPTY_GRID = [[0 for _ in range(9)] for _ in range(9)]
 
 
@@ -37,6 +39,9 @@ class Sudoku:
 
     def solve(self) -> None:
         self.solve_attempted = True
+        if not self.is_valid_grid():
+            self.solve_successful = False
+            return
         self._solve()
         self.solve_successful = all(self.grid[i, j] for i in range(9) for j in range(9))
 
@@ -67,6 +72,29 @@ class Sudoku:
             for j in range(box_column, box_column + 3)
         ):
             return False
+        return True
+
+    def is_valid_grid(self) -> bool:
+        for row in range(9):
+            counter = Counter(self.grid[row, j] for j in range(9) if self.grid[row, j])
+            if counter:
+                if max(counter.values()) > 1:
+                    return False
+        for col in range(9):
+            counter = Counter(self.grid[i, col] for i in range(9) if self.grid[i, col])
+            if counter:
+                if max(counter.values()) > 1:
+                    return False
+        for row, col in ((3 * i, 3 * j) for i in range(3) for j in range(3)):
+            counter = Counter(
+                self.grid[row + i, col + j]
+                for i in range(3)
+                for j in range(3)
+                if self.grid[row + i, col + j]
+            )
+            if counter:
+                if max(counter.values()) > 1:
+                    return False
         return True
 
     def __str__(self) -> str:
