@@ -9,7 +9,7 @@ The Sudoku solver allows you to:
 - check your progress
 - automatically solve the puzzle
 
-![](img/screenshot.png)
+![Screenshot of app](img/screenshot.png)
 
 ## Usage
 
